@@ -1,0 +1,38 @@
+<div class="admin">
+    <div class="logout">
+        <button class="btn btn-danger" routerLink="/">Log Out</button>
+    </div>
+    <header>
+        <div class="container" style="background-color:rgb(46, 41, 41);">
+    <h2 style="color:whitesmoke;">Pending Claims</h2>
+</div>
+</header>    
+<div class="ctx" style="background-color:rgb(208, 217, 217);">
+        <table class="table">
+            <thead class="head">
+                <tr>
+                    <th>Claim No.</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                    <th>ToDo</th>
+                </tr>   
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let obj of cpsObj">
+                    
+                    <td>{{obj.claimNo}}</td>
+                    <td>{{obj.claimDate | date }}</td>
+                    <td>{{obj.approveStatus!=1?"Pending":"Approved"}}</td>
+                    <td>{{obj.amount}}</td>
+                    <!-- <td>{{obj.PolicyId}}</td> -->
+                    <td><button type="button" class="btn btn-success" (click)="edit(obj.claimNo)">approve</button></td>
+                </tr>
+                
+            </tbody>
+
+        </table>
+    </div>
+    
+</div>

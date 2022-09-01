@@ -1,0 +1,79 @@
+<div class="form-group">
+    <header>
+      <div class="container" style="background-color:rgb(46, 41, 41)">
+        <h2 style="color:white;">Calculate Premium </h2>
+      </div>
+    </header>
+    <form (ngSubmit)="calculate(premium)" #premiumForm="ngForm">
+        <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="4Wheeler" [(ngModel)]="premium.vehicletype" #gridRadios1="ngModel">
+              <label class="form-check-label" for="gridRadios1">
+                4 Wheeler
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2Wheeler" [(ngModel)]="premium.vehicletype" #gridRadios2="ngModel">
+              <label class="form-check-label" for="gridRadios2">
+                2 Wheeler
+              </label>
+            </div>
+        </div>
+      <div class="container-2">
+          <p>Choose Your Plan</p>
+      </div>
+      <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Tpl" id="Tpl" [(ngModel)]="premium.plantype" #Tpl="ngModel"   value="ThirdParty" checked >
+            <label class="form-check-label" for="gridRadios1">
+              Third Party
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="cp" [(ngModel)]="premium.plantype"  #cp="ngModel" value="Comprehensive">
+            <label class="form-check-label" for="gridRadios2">
+              Comprehensive
+            </label>
+          </div>
+      </div>
+      <div class="container-2">
+          <p>Choose Your Period</p>
+      </div>
+      <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="one"  id="one" [(ngModel)]="premium.term"  #one="ngModel" [value]=1 checked>
+            <label class="form-check-label" for="gridRadios1">
+ 
+              One Year
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="two" id="two"  [(ngModel)]="premium.term"  #two="ngModel"[value]=2>
+            <label class="form-check-label" for="gridRadios2">
+              Two Year
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="three" [(ngModel)]="premium.term"  #three="ngModel" id="three" [value]=3>
+              <label class="form-check-label" for="gridRadios2">
+                Three Year
+              </label>
+            </div>
+           
+      </div>
+      <div>
+        <br>
+        <div class="prm">
+          Estimated premium for the VehicleType <div class="btn btn-info" > {{this.premium.vehicletype}} </div>
+          Opted for <div class="btn btn-info">{{this.premium.plantype}}</div><br>
+          <br>
+          Final Premium Amount :<div class="btn btn-dark">
+           Rs. {{this.amount}}/-
+         </div>
+        </div>
+        </div>
+      <div class="col-12" style="margin-left: 46%;">
+        <button type="submit" class="btn btn-primary" [disabled]="!premiumForm.valid" >Calculate Premium</button>
+      </div>
+    </form>
+    </div>

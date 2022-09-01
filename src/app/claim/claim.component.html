@@ -1,0 +1,62 @@
+<div class="claim">
+    <header>  
+    <div class="container" style="background-color:black;">
+      <h2 style="color:whitesmoke;">Claim Insurance</h2>
+      </div>
+    </header>
+    <div class="fm">
+  <form (ngSubmit)="submit(claim)" #claimForm="ngForm">
+      <div class="container-2">
+          <div class="mb-3">
+              <p style="background-color: rgb(57, 54, 54);color:white">Enter UserID:</p>
+              <input type="number" class="form-control" id="unumber" name="unumber" placeholder="Enter User-ID" [(ngModel)]="claim.UserId" #unumber="ngModel" required>
+              <div *ngIf="(unumber.touched || claimForm.submitted) && unumber.errors?.['required']" style="color:red">*User-ID is Required</div>
+            </div>
+            <!-- <div class="mb-3">
+              <input type="text" class="form-control" id="mnumber" name="mnuber" placeholder="Enter Mobile Number" [(ngModel)]="mobile" #mnumber="ngModel" required>
+              <div *ngIf="(mnumber.touched || claimForm.submitted) && mnumber.errors?.['required']" style="color:red">*MobileNo is Required</div>
+            </div> -->
+
+  
+            <div class="abc">
+              <p style="background-color: rgb(57, 54, 54);color:white" >Please select reason:</p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="nd" id="nd" value="Natural Disaster" [(ngModel)]="claim.reason" #nd="ngModel">
+                <label class="form-check-label" for="gridRadios1">
+                  Natural Disaster    
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="mmd" id="mmd" value="Man-Made Disaster" [(ngModel)]="claim.reason" #mmd="ngModel">
+                <label class="form-check-label" for="gridRadios2">
+                   Man-Made Disaster
+                </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ra" id="ra" value="Road Accident" [(ngModel)]="claim.reason" #ra="ngModel">
+                  <label class="form-check-label" for="gridRadios2">
+                    Road Accident
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="theft" id="theft" value="Theft" [(ngModel)]="claim.reason" #theft="ngModel">
+                  <label class="form-check-label" for="gridRadios2">
+                  Theft
+                  </label>
+                </div>
+                <div>
+                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter Claim Amount"  [(ngModel)]="claim.amount" #amount="ngModel" maxlength="6" minlength="4">
+                <div *ngIf="(amount.touched || claimForm.submitted) && amount.errors?.['required']" style="color:red">*Claim amount is Required</div>
+                <div *ngIf="(amount.touched || claimForm.submitted) && amount.errors?.['maxlength']" style="color:red">*Number should be of max 6 digits</div>
+                <div *ngIf="(amount.touched || claimForm.submitted) && amount.errors?.['minlength']" style="color:red">*Number should be of min 4 digits</div>
+              </div>
+          </div>
+          <div class="col-12" style="margin-left: 48%;">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+            
+      </div>
+  </form>
+</div>
+  </div>
+  <router-outlet></router-outlet>

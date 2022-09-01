@@ -1,0 +1,52 @@
+<div class="upper">
+<button routerLink="/" class="btn btn-danger">Log-Out</button>&nbsp;&nbsp;<button routerLink="/Login/{{this.rid}}/Userpage/Vregister" class="btn btn-success">BuyInsurance </button>
+</div>
+<div class="admin">
+    <header>
+        <div class="container">
+             <h2 style="color:whitesmoke;">Your Plans </h2>
+        </div>
+    </header>   
+<div>
+    <div class="jumbotron"  >
+            <table class="table" >
+                <thead style="background-color:rgb(59, 61, 62);color: white;">
+                    <tr>
+                        <th></th>
+                        <th>User-Id</th>
+                        <!-- <th>Plan-Id</th> -->
+                        <th>Plan Type</th>
+                        <th>Duration(in years)</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>   
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of planData">
+                        <td></td>
+                        <td>{{rid}}</td>
+                        <!-- <td>{{obj.id}}</td> -->
+                        <td>{{obj.type}}</td>
+                        <td>{{obj.term}}</td>
+                        <td>{{obj.amount}}</td>
+                        <td>
+                            <!-- {{obj.id}} -->
+                            <a class="btn btn-danger" routerLink="/Login/{{this.rid}}/Userpage/{{obj.id}}/Claim">Claim</a>
+                        //
+                            <a class="btn btn-primary" routerLink="/Login/{{this.rid}}/Userpage/{{obj.id}}/Plan">Renew</a>
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="userpage">
+        <div>
+            <!-- <a class="btn btn-primary" routerLink="/Login/{{this.rid}}/Userpage/Vregister">Buy</a> -->
+            <!-- <a class="btn btn-primary" routerLink="/Login/{{this.rid}}/Userpage/Claim">Claim</a> -->
+            <!-- <a class="btn btn-primary" routerLink="/Login/{{this.rid}}/Userpage/Plan">Renew</a> -->
+        </div>
+    </div>
+
+</div>
+<router-outlet></router-outlet>

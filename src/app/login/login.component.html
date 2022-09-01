@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="login">
+  <header>
+    <div class="text-1" >
+      <h2 style="color:aliceblue">Login!</h2>
+    </div>
+  </header>
+<form (ngSubmit)="login(userid,password)" #loginForm="ngForm">
+  <div class="container">
+    <div class="mb-3">
+      <label for="formGroupExampleInput" class="form-label">User ID :</label>
+      <input
+        type="number"
+        class="form-control"
+        id="userid"
+        name="userid"
+        [(ngModel)]="userid"
+        #uid="ngModel"  required
+        placeholder="Enter uid"
+      />
+      <div *ngIf="(uid.touched || loginForm.submitted) && uid.errors?.['required']" style="color:red">*uid is Required</div>
+      <div *ngIf="(uid.touched || loginForm.submitted) && uid.errors?.['pattern']" style="color:red">*Enter a valid uid</div>
+    </div>
+    <div class="mb-3">
+      <label for="formGroupExampleInput2" class="form-label">Password :</label>
+      <input
+        type="password"
+        class="form-control"
+        id="pass"
+        name="pass"
+        [(ngModel)]="password"
+        #pass="ngModel"
+        minlength="8"
+        required
+        placeholder="Enter Password"
+      />
+      <div *ngIf="(pass.touched || loginForm.submitted) && pass.errors?.['required']" style="color:red">*Password is Required</div>
+      <div *ngIf="(pass.touched || loginForm.submitted) && pass.errors?.['minlength']" style="color:red">*Invalid Password</div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Log in</button>
+      </div>
+  
+  <div class="footer">
+    <div class="forgetp">
+        <button type="submit" class="btn btn-primary">Forget Password</button>
+    </div>
+    <div class="forgetp">
+        <button type="submit" class="btn btn-primary">Reset Password</button>
+    </div>
+  </div>
+  </div>
+</form>
+</div>
+<!-- <div class="login">
+  <app-claimstatus></app-claimstatus>
+</div> -->

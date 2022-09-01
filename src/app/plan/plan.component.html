@@ -1,0 +1,57 @@
+<div class="plans">
+    <header>
+      <div class="container" style="background-color:black;color: white;">
+        <h2 style="color:white">Plans</h2>
+      </div>
+    </header>
+    <form (ngSubmit)="savePlan(plan)" #planForm="ngForm">
+      <div class="container-2">
+          <p style="color:black">Choose Your Plan</p>
+      </div>
+      
+      <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="Tpl" id="Tpl" [(ngModel)]="plan.type" #Tpl="ngModel"   value="ThirdParty" checked >
+            <label class="form-check-label" for="gridRadios1">
+              Third Party
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="cp" id="cp" [(ngModel)]="plan.type"  #cp="ngModel" value="Comprehensive">
+            <label class="form-check-label" for="gridRadios2">
+              Comprehensive
+            </label>
+          </div>
+      </div>
+    
+    
+      <div class="container-2">
+          <p style="color: black;">Choose Your Period</p>
+      </div>
+      <div class="col-sm-11">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="one"  id="one" [(ngModel)]="plan.term"  #one="ngModel" [value]=1 checked>
+            <label class="form-check-label" for="gridRadios1">
+              One Year
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="two" id="two"  [(ngModel)]="plan.term"  #two="ngModel"[value]=2>
+            <label class="form-check-label" for="gridRadios2">
+              Two Year
+            </label>
+          </div>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="three" [(ngModel)]="plan.term"  #three="ngModel" id="three" [value]=3>
+              <label class="form-check-label" for="gridRadios2">
+                Three Year
+              </label>
+            </div>
+      </div>
+
+      <div class="col-12" style="margin-left: 46%;">
+        <button type="submit" class="btn btn-primary" [disabled]="!planForm.valid" >Make Payment</button>
+      </div>
+        
+    </form>
+    </div>
